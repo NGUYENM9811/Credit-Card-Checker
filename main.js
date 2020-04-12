@@ -54,7 +54,7 @@ function validateCred(creditArray){
 function findInvalidCards(listCreditCards){
 // listCreditCards parameter is a nested array
     invalidCards=[];
-    let n=listCreditCards.length
+    let n=listCreditCards.length;
     for (let i=0;i<n;i++ ){
         let toBeChecked=listCreditCards[i];
         if (!validateCred(toBeChecked)) {
@@ -63,4 +63,52 @@ function findInvalidCards(listCreditCards){
     }
     return invalidCards;
 }
-console.log(findInvalidCards(batch));
+invalidList=findInvalidCards(batch);
+function removeDuplicate(array){
+    //Argument is an array and return value is a unique array and no duplicates
+    let n=array.length;
+    for(let i=0;i<n;i++){
+        for (let k=i+1;k<n;k++){
+            if(array[i]===array[k]){
+                array.splice(k,1);
+            }
+        }
+    }
+    return array;
+}
+/*
+toBeTested=['Nina','Goku','Nina','Sayain',1,1];
+console.log(removeDuplicate(toBeTested)); */
+
+
+function idInvalidCardCompanies(invalidArray){
+    //invalidArray refers to the array of invalid cards,
+    // this function returns an array of credit card providers
+    let n=invalidArray.length;
+    //n is the number of invalid credit cards;
+    invalidProvider=[];
+    //invalidProvider is initialized to be an empty array. 
+    for (let i=0;i<n;i++){
+        switch(invalidArray[i][0]){
+            case 3:
+                invalidProvider.push('Amex');
+                break;
+            case 4:
+                invalidProvider.push('Visa');
+                break;
+            case 5:
+                invalidProvider.push('Mastercard');
+                break;
+            case 6:
+                invalidProvider.push('Discover');
+                break;
+            default:
+                invalidProvider.push('Company not found');
+                break;
+        }
+    }
+    //invalidProvider now might have some duplicates. 
+    return removeDuplicate(invalidProvider);
+}
+console.log(idInvalidCardCompanies(invalidList));
+
