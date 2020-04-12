@@ -79,8 +79,6 @@ function removeDuplicate(array){
 /*
 toBeTested=['Nina','Goku','Nina','Sayain',1,1];
 console.log(removeDuplicate(toBeTested)); */
-
-
 function idInvalidCardCompanies(invalidArray){
     //invalidArray refers to the array of invalid cards,
     // this function returns an array of credit card providers
@@ -109,6 +107,7 @@ function idInvalidCardCompanies(invalidArray){
     }
     //invalidProvider now might have some duplicates. 
     return removeDuplicate(invalidProvider);
+    //removeDuplicate function created to remove duplicates 
 }
 console.log(idInvalidCardCompanies(invalidList));
 
