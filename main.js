@@ -64,4 +64,3 @@ function findInvalidCards(listCreditCards){
     return invalidCards;
 }
 console.log(findInvalidCards(batch));
-// just kidding
